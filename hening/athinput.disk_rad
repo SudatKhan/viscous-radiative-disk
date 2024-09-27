@@ -9,7 +9,7 @@ problem_id  = disk       # problem ID: basename of output filenames
 <output1>
 file_type   = hdf5       # hdf5 data dump
 variable    = prim
-dt          = 0.05
+dt          = 0.1
 
 <output2>
 file_type   = hst        # History data dump
@@ -17,10 +17,15 @@ dt          = 0.01
 
 <output3>
 file_type   = rst        # Restart data dump
-dt          = 1.0
+dt          = 5.0
+
+#<output4>
+#file_type   = hdf5       # user output
+#variable    = uov
+#dt          = 0.1
 
 <time>
-cfl_number  = 0.1       # The Courant, Friedrichs, & Lewy (CFL) Number
+cfl_number  = 0.3       # The Courant, Friedrichs, & Lewy (CFL) Number
 nlim        = -1        # cycle limit
 tlim        = 628       # time limit
 integrator  = rk2       # time integration algorithm
@@ -56,9 +61,9 @@ nx3 = 1
 
 <hydro>
 gamma             = 1.66666667
-dfloor            = 1.e-8
+dfloor            = 1.e-6
 pfloor            = 1.e-12
-tceil             = 5e4       # in cgs
+tceil             = 1e4       # in cgs
 
 <orbital_advection>
 OAorder           = 0   # 0: w/o OA, 1: w/ OA (1st), 2: w/ OA (2nd)
@@ -71,10 +76,10 @@ density_unit      = 1.976e-8    # rho at r0 in cgs
 length_unit       = 1.496e12    # r0=0.1AU in cgs
 molecular_weight  = 2.3
 source_flag       = 1
-angle_flag        = 1           # rotate angular system with local coords
+angle_flag        = 1
 nmu               = 1
 nzeta             = 2           # no. of polar angles (0 to pi/2)
-npsi              = 1           # no. of azimuthal angles (0 to pi)
+npsi              = 2           # no. of azimuthal angles (0 to pi)
 n_frequency       = 1           # no. of frequency groups
 #reduced_factor    = 1e-3        # Reduced (fraction of) speed of light
 error_limit       = 1.e-5
